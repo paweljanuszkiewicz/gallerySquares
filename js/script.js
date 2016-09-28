@@ -1,4 +1,5 @@
-$(document).ready(function () {
+$(window).on("load", function() {
+    
     //to configure
     var numberOfColumns = 8;    //4, 8 or 16 (the same number as in styles.sass)
     var scrollNumber = 2;
