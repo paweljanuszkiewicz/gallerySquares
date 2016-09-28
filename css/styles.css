@@ -1,0 +1,261 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway:200';
+body, img, div, p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; }
+
+body {
+  background-color: #262626;
+  overflow: hidden; }
+
+.load {
+  position: absolute;
+  top: 48%;
+  left: 48%; }
+  .load p {
+    margin-top: 16px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    letter-spacing: 0.3em;
+    animation-name: loader-text;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite; }
+
+.load > div {
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  display: inline-block;
+  animation-name: loader;
+  animation-duration: 3s;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite; }
+
+.load > div:nth-of-type(1) {
+  animation-delay: 200ms; }
+
+.load > div:nth-of-type(2) {
+  animation-delay: 400ms; }
+
+.load > div:nth-of-type(3) {
+  animation-delay: 600ms; }
+
+.load > div:nth-of-type(4) {
+  animation-delay: 800ms; }
+
+@keyframes loader {
+  0% {
+    opacity: 1; }
+  30% {
+    opacity: 0; }
+  60%, 100% {
+    opacity: 1;
+    transform: rotateY(-360deg); } }
+@keyframes loader-text {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0.6; } }
+div.container {
+  max-width: 1920px;
+  margin: 0 auto; }
+
+div.full {
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer; }
+  div.full.hide {
+    display: none; }
+
+aside {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 58px; }
+  aside button {
+    position: fixed;
+    right: 20px;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 4px;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: rotate(90deg);
+    cursor: pointer;
+    display: block;
+    opacity: 0;
+    transition: opacity 400ms ease-in-out; }
+  aside.hide {
+    display: none; }
+    aside.hide button {
+      cursor: auto; }
+
+aside:not(.hide):hover button {
+  opacity: 1; }
+
+img {
+  float: left;
+  border: 0;
+  outline: 0;
+  width: 12.5vw;
+  height: 12.5vw;
+  max-width: 240px;
+  max-height: 240px;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-user-select: none;
+  transition: filter 400ms, opacity 800ms 1000ms; }
+  img:not(.dim):hover {
+    filter: brightness(1.6); }
+
+img[src='empty.gif'] {
+  cursor: auto; }
+
+img.show {
+  opacity: 1; }
+
+.inside {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  background-repeat: no-repeat;
+  background-size: 50vw 50vw;
+  cursor: pointer;
+  transition-property: opacity;
+  transition-duration: 500ms; }
+
+.px .inside {
+  background-size: 960px 960px; }
+
+.relative {
+  position: relative;
+  display: inline-block;
+  float: left; }
+
+.dim {
+  filter: grayscale(1) brightness(0.2); }
+
+.clear {
+  clear: left; }
+
+.transition {
+  opacity: 1; }
+
+.relative:nth-of-type(1) > div {
+  background-position: calc((133% / 4) * 0) calc((133% / 4) * 0); }
+
+.relative:nth-of-type(2) > div {
+  background-position: calc((133% / 4) * 1) calc((133% / 4) * 0); }
+
+.relative:nth-of-type(3) > div {
+  background-position: calc((133% / 4) * 2) calc((133% / 4) * 0); }
+
+.relative:nth-of-type(4) > div {
+  background-position: calc((133% / 4) * 3) calc((133% / 4) * 0); }
+
+.relative:nth-of-type(5) > div {
+  background-position: calc((133% / 4) * 0) calc((133% / 4) * 1); }
+
+.relative:nth-of-type(6) > div {
+  background-position: calc((133% / 4) * 1) calc((133% / 4) * 1); }
+
+.relative:nth-of-type(7) > div {
+  background-position: calc((133% / 4) * 2) calc((133% / 4) * 1); }
+
+.relative:nth-of-type(8) > div {
+  background-position: calc((133% / 4) * 3) calc((133% / 4) * 1); }
+
+.relative:nth-of-type(9) > div {
+  background-position: calc((133% / 4) * 0) calc((133% / 4) * 2); }
+
+.relative:nth-of-type(10) > div {
+  background-position: calc((133% / 4) * 1) calc((133% / 4) * 2); }
+
+.relative:nth-of-type(11) > div {
+  background-position: calc((133% / 4) * 2) calc((133% / 4) * 2); }
+
+.relative:nth-of-type(12) > div {
+  background-position: calc((133% / 4) * 3) calc((133% / 4) * 2); }
+
+.relative:nth-of-type(13) > div {
+  background-position: calc((133% / 4) * 0) calc((133% / 4) * 3); }
+
+.relative:nth-of-type(14) > div {
+  background-position: calc((133% / 4) * 1) calc((133% / 4) * 3); }
+
+.relative:nth-of-type(15) > div {
+  background-position: calc((133% / 4) * 2) calc((133% / 4) * 3); }
+
+.relative:nth-of-type(16) > div {
+  background-position: calc((133% / 4) * 3) calc((133% / 4) * 3); }
+
+.relative.px:nth-of-type(1) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 0)) calc(1920px/$numbersOfColumns * 0); }
+
+.relative.px:nth-of-type(2) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 1)) calc(1920px/$numbersOfColumns * 0); }
+
+.relative.px:nth-of-type(3) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 2)) calc(1920px/$numbersOfColumns * 0); }
+
+.relative.px:nth-of-type(4) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 3)) calc(1920px/$numbersOfColumns * 0); }
+
+.relative.px:nth-of-type(5) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 0)) calc(1920px/$numbersOfColumns * 1); }
+
+.relative.px:nth-of-type(6) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 1)) calc(1920px/$numbersOfColumns * 1); }
+
+.relative.px:nth-of-type(7) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 2)) calc(1920px/$numbersOfColumns * 1); }
+
+.relative.px:nth-of-type(8) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 3)) calc(1920px/$numbersOfColumns * 1); }
+
+.relative.px:nth-of-type(9) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 0)) calc(1920px/$numbersOfColumns * 2); }
+
+.relative.px:nth-of-type(10) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 1)) calc(1920px/$numbersOfColumns * 2); }
+
+.relative.px:nth-of-type(11) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 2)) calc(1920px/$numbersOfColumns * 2); }
+
+.relative.px:nth-of-type(12) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 3)) calc(1920px/$numbersOfColumns * 2); }
+
+.relative.px:nth-of-type(13) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 0)) calc(1920px/$numbersOfColumns * 3); }
+
+.relative.px:nth-of-type(14) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 1)) calc(1920px/$numbersOfColumns * 3); }
+
+.relative.px:nth-of-type(15) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 2)) calc(1920px/$numbersOfColumns * 3); }
+
+.relative.px:nth-of-type(16) > div {
+  background-position: calc(- (1920px/$numbersOfColumns * 3)) calc(1920px/$numbersOfColumns * 3); }
+
+/*# sourceMappingURL=styles.css.map */

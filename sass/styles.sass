@@ -1,0 +1,183 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway:200'
+
+$numberOfColumns: 8 //4, 8 or 16 (the same number as in script.js)
+
+body, img, div, p
+    margin: 0
+    padding: 0
+    border: 0
+    box-sizing: border-box
+
+body
+    background-color: #262626
+    overflow: hidden
+
+.load
+    position: absolute
+    top: 48%
+    left: 48%
+    p
+        margin-top: 16px
+        color: white
+        font-size: 16px
+        text-align: center
+        font-family: 'Raleway', sans-serif
+        letter-spacing: .3em
+        animation: 
+            name: loader-text 
+            duration: 2s 
+            direction: alternate
+            fill-mode: both
+            timing-function: ease-in-out
+            iteration-count: infinite
+        
+.load > div
+    width: 36px
+    height: 36px
+    background-color: white
+    display: inline-block
+    animation: 
+        name: loader 
+        duration: 3s 
+        direction: normal
+        fill-mode: forwards
+        timing-function: ease-in-out
+        iteration-count: infinite
+
+@for $i from 1 through 4
+    .load > div:nth-of-type(#{$i})
+        animation-delay: $i * 200 + ms
+        
+@keyframes loader
+    0%
+        opacity: 1
+    30%
+        opacity: 0
+    60%, 100%
+        opacity: 1
+        transform: rotateY(-360deg)
+
+@keyframes loader-text
+    0%
+        opacity: 1
+    100%
+        opacity: .6
+
+div.container
+    max-width: 1920px
+    margin: 0 auto
+
+div.full
+    display: block
+    position: fixed
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    opacity: 0
+    z-index: 10
+    cursor: pointer
+    &.hide
+        display: none
+        
+aside
+    position: fixed
+    right: 0
+    top: 0
+    bottom: 0
+    z-index: 2
+    width: 58px
+    button
+        position: fixed
+        right: 20px
+        color: white
+        padding: 10px
+        font-size: 20px
+        border-radius: 4px
+        border: 0
+        background-color: rgba(0, 0, 0, .5)
+        transform: rotate(90deg)
+        cursor: pointer
+        display: block
+        opacity: 0
+        transition: opacity 400ms ease-in-out
+    &.hide
+        display: none
+        button
+            cursor: auto
+    
+aside:not(.hide):hover button
+    opacity: 1
+
+img
+    float: left
+    border: 0
+    outline: 0
+    width: (100/$numberOfColumns) * 1vw
+    height: (100/$numberOfColumns) * 1vw
+    max-width: 1920px/$numberOfColumns
+    max-height: 1920px/$numberOfColumns
+    cursor: pointer
+    opacity: 0
+    -webkit-user-select: none
+    transition: filter 400ms, opacity 800ms 1000ms
+    
+    &:not(.dim):hover
+        filter: brightness(1.6) 
+
+img[src='empty.gif']
+    cursor: auto
+
+img.show
+    opacity: 1
+
+.inside
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    z-index: -1
+    opacity: 0
+    background-repeat: no-repeat
+    background-size: (100/2) * 1vw (100/2) * 1vw
+    cursor: pointer
+    transition:
+        property: opacity
+        duration: 500ms
+
+.px .inside
+    background-size: 960px 960px
+    
+.relative
+    position: relative
+    display: inline-block
+    float: left
+    
+.dim
+    filter: grayscale(1) brightness(.2)
+    
+.clear
+    clear: left
+    
+.transition
+    opacity: 1
+
+@if ($numberOfColumns == 4)
+    @for $i from 1 through 4
+        .relative:nth-of-type(#{$i}) > div
+            background-position: calc(100% * #{($i - 1) % 2}) calc(100% * #{floor(($i - 1) / 2)})
+
+@if ($numberOfColumns == 8)
+    @for $i from 1 through 16
+        .relative:nth-of-type(#{$i}) > div
+            background-position: calc((133% / 4) * #{($i - 1) % 4}) calc((133% / 4) * #{floor(($i - 1) / 4)})
+
+@if ($numberOfColumns == 16)
+    @for $i from 1 through 64
+        .relative:nth-of-type(#{$i}) > div
+            background-position: calc((114% / 8) * #{($i - 1) % 8}) calc((114% / 8) * #{floor(($i - 1) / 8)})
+    
+@for $j from 1 through 16
+    .relative.px:nth-of-type(#{$j}) > div
+        background-position: calc(- (1920px/$numbersOfColumns * #{($j - 1) % 4})) calc(1920px/$numbersOfColumns * #{floor(($j - 1) / 4)})
