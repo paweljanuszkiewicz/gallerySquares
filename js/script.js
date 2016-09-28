@@ -123,8 +123,8 @@ $(document).ready(function() {
     function hide () {
         $('.relative div').removeClass('transition');
         $('img').removeClass('dim');
-        $(this).addClass('hide');
         $('aside').removeClass('hide');
+        $(this).addClass('hide');
         setTimeout(function (){
             $('img').css('transition-delay', '0ms');
             $('.inside').css('z-index', '-1');
@@ -175,9 +175,11 @@ $(document).ready(function() {
         wideMonitors();
     });
     $('img:not(img[src="empty.gif"])').on('click', function () {
-        if (!isDim()) {
+        var imageName = $(this).attr('src');
+        if (!isDim() && imageName) {
+            console.log(imageName);
             $('.inside').css('z-index', '1');
-            var imageName = $(this).attr('src');
+            
             $('img').each(function (item, value) {
                 var rand = random(0, 500);
                 $(value).css('transition-delay', (rand * 2) + 'ms').prev().css('transition-delay', rand + 'ms');
