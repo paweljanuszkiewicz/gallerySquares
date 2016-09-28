@@ -1,4 +1,15 @@
-$(window).on("load", function() {
+$(document).ready(function() {
+    
+    $(window).on("load", function() {
+        //show pictures (animation) / hide loader
+        $('.load').fadeOut(600, function(){ $(this).remove(); });
+        $('img').each(function (i) {
+            setTimeout(function () {
+                $('img').eq(i).addClass('show');
+            }, random(0, 800));
+        });
+        $('aside').removeClass('hide');
+    });
     
     //to configure
     var numberOfColumns = 8;    //4, 8 or 16 (the same number as in styles.sass)
@@ -8,16 +19,6 @@ $(window).on("load", function() {
     var numberOfLines, visibleLines;
     var $active;
     var mainImageTales;     //indexes of tales with big image
-    
-    
-    //show pictures (animation) / hide loader
-    $('.load').fadeOut(600, function(){ $(this).remove(); });
-    $('img').each(function (i) {
-        setTimeout(function () {
-            $('img').eq(i).addClass('show');
-        }, random(0, 800));
-    });
-    $('aside').removeClass('hide');
     
     //slide to top, start
     imagesOffset();
