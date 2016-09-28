@@ -1,5 +1,6 @@
 $(document).ready(function() {
     
+    //load
     $(window).on("load", function() {
         //show pictures (animation) / hide loader
         $('.load').fadeOut(600, function(){ $(this).remove(); });
