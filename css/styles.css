@@ -20,36 +20,62 @@ body {
     text-align: center;
     font-family: "Raleway", sans-serif;
     letter-spacing: 0.3em;
-    animation-name: loader-text;
-    animation-duration: 2s;
-    animation-direction: alternate;
-    animation-fill-mode: both;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite; }
+    -webkit-animation-name: loader-text;
+            animation-name: loader-text;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite; }
 
 .load > div {
   width: 36px;
   height: 36px;
   background-color: white;
   display: inline-block;
-  animation-name: loader;
-  animation-duration: 3s;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite; }
+  -webkit-animation-name: loader;
+          animation-name: loader;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite; }
 
 .load > div:nth-of-type(1) {
-  animation-delay: 200ms; }
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms; }
 
 .load > div:nth-of-type(2) {
-  animation-delay: 400ms; }
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms; }
 
 .load > div:nth-of-type(3) {
-  animation-delay: 600ms; }
+  -webkit-animation-delay: 600ms;
+          animation-delay: 600ms; }
 
 .load > div:nth-of-type(4) {
-  animation-delay: 800ms; }
+  -webkit-animation-delay: 800ms;
+          animation-delay: 800ms; }
+
+@-webkit-keyframes loader {
+  0% {
+    opacity: 1; }
+  30% {
+    opacity: 0; }
+  60%, 100% {
+    opacity: 1;
+    -webkit-transform: rotateY(-360deg);
+            transform: rotateY(-360deg); } }
 
 @keyframes loader {
   0% {
@@ -58,7 +84,13 @@ body {
     opacity: 0; }
   60%, 100% {
     opacity: 1;
-    transform: rotateY(-360deg); } }
+    -webkit-transform: rotateY(-360deg);
+            transform: rotateY(-360deg); } }
+@-webkit-keyframes loader-text {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0.6; } }
 @keyframes loader-text {
   0% {
     opacity: 1; }
@@ -97,10 +129,12 @@ aside {
     border-radius: 4px;
     border: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
     cursor: pointer;
     display: block;
     opacity: 0;
+    -webkit-transition: opacity 400ms ease-in-out;
     transition: opacity 400ms ease-in-out; }
   aside.hide {
     display: none; }
@@ -121,9 +155,13 @@ img {
   cursor: pointer;
   opacity: 0;
   -webkit-user-select: none;
-  transition: filter 400ms, opacity 800ms 1000ms; }
+  -webkit-transition: opacity 800ms 1000ms, -webkit-filter 400ms;
+  transition: opacity 800ms 1000ms, -webkit-filter 400ms;
+  transition: filter 400ms, opacity 800ms 1000ms;
+  transition: filter 400ms, opacity 800ms 1000ms, -webkit-filter 400ms; }
   img:not(.dim):hover {
-    filter: brightness(1.6); }
+    -webkit-filter: brightness(1.6);
+            filter: brightness(1.6); }
 
 img[src='empty.gif'] {
   cursor: auto; }
@@ -142,8 +180,10 @@ img.show {
   background-repeat: no-repeat;
   background-size: 50vw 50vw;
   cursor: pointer;
+  -webkit-transition-property: opacity;
   transition-property: opacity;
-  transition-duration: 500ms; }
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms; }
 
 .px .inside {
   background-size: 960px 960px; }
@@ -154,7 +194,8 @@ img.show {
   float: left; }
 
 .dim {
-  filter: grayscale(1) brightness(0.2); }
+  -webkit-filter: grayscale(1) brightness(0.2);
+          filter: grayscale(1) brightness(0.2); }
 
 .clear {
   clear: left; }
@@ -257,5 +298,3 @@ img.show {
 
 .relative.px:nth-of-type(16) > div {
   background-position: calc(- (1920px/$numbersOfColumns * 3)) calc(1920px/$numbersOfColumns * 3); }
-
-/*# sourceMappingURL=styles.css.map */
